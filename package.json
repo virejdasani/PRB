@@ -6,6 +6,10 @@
   "scripts": {
     "start": "electron ."
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/virejdasani/Cadbury.git"
+  },
   "author": "Virej Dasani",
   "license": "ISC",
   "dependencies": {
