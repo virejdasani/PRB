@@ -16,7 +16,7 @@ document.getElementById("askBtn").addEventListener("click", function(event){
     let helloResponse = ["Hello to you too!", "Hey!", "Good to see you!", "Hi, nice to meet you"] 
     let howAreYouResponse = ["Just doing my thing!", "I am great!", "Amazing!", "Feeling awesome!"]
     let whatsUpResponse = ["The ceiling, the sky?", "Nothing much, just robot butler stuff...", "Just personal assistant stuff..."]
-    let agreeResponse = ["Sure thing", "Okay", "For sure", "Alright"]        
+    let agreeResponse = ["Sure thing", "Okay", "For sure", "Alright", "Here you go"]        
     let unrecognisedCommandResponse = ["Sorry, I don't know that. <div>Type 'help' to see what I can do</div>", "I'm not too sure about that one. <div>Type 'help' to see what I can do</div>", "Hmm, I'm not sure I know that yet. <div>Type 'help' to see what I can do</div>"]
     let exitResponse = ["Goodbye", "Bye Bye!", "See you soon", "Catch you later!"]
     let errorResponse = ["An error occured", "Sorry, there was an error", "Error, try again"]
@@ -42,9 +42,44 @@ document.getElementById("askBtn").addEventListener("click", function(event){
     else if (command.includes("who are you") || command.includes("what are you") || command.includes("what r u") || command.includes("who r u")) {
         answer = "I am Cadbury, your personal robot butler! Type 'help' to see what I can do!"
     }
+
+    // WEB BASED COMMANDS
+    // To open an external website
+    else if (command.includes("open ")) {
+        if (command.includes("stack overflow") || command.includes("stovf")) {
+            openSite('https://stackoverflow.com')
+            answer = random(agreeResponse)
+        }
+
+        else if (command.includes("youtube") || command.includes(" yt")) {
+            openSite('https://youtube.com')
+            answer = random(agreeResponse)
+        }
+        
+        else if (command.includes("github") || command.includes(" gh")) {
+            openSite('https://github.com')
+            answer = random(agreeResponse)
+        }
+
+        else if (command.includes("google")) {
+            openSite('https://youtube.com')
+            answer = random(agreeResponse)
+        }
+        
+        else if (command.includes("github") || command.includes("gh")) {
+            openSite('https://github.com')
+            answer = random(agreeResponse)
+        }
+
+    }
+    
+
+    
     else {
         answer = random(unrecognisedCommandResponse)
     }
+
+    
     
     // This displays the answer on the answer div
     document.getElementById("answer").innerHTML = answer
@@ -57,6 +92,10 @@ document.getElementById("askBtn").addEventListener("click", function(event){
 function random(array) {
 let getRandom = Math.floor(Math.random() * array.length)
 return array[getRandom]
+}
+
+function openSite(siteName) {
+    window.open(siteName,"",'width=1000,height=600,toolbar=no,location=yes,directories=yes,status=yes,menubar=yes,scrollbars=yes,copyhistory=yes,resizable=yes')
 }
 
 // Function to get the date and time
