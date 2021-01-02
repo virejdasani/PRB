@@ -2,6 +2,6 @@
 Your personal robot butler
 Made with Electron
 
-Run `npm install` to run Cadbury!
+Run `npm install` then `npm start` to run Cadbury!
 
 
