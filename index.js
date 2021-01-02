@@ -3,37 +3,63 @@ document.getElementById("askBtn").addEventListener("click", function(event){
     // This prevents refresh
     event.preventDefault()
 
+    // Variable declaration
     let command
     let answer
 
+    // LISTS
+    // Inputs
+    let agreeInput = ["yes", "y", "sure", "yep"]
+    let disagreeInput = ["no", "n", "nope"]
+
+    // Responses
+    let helloResponse = ["Hello to you too!", "Hey!", "Good to see you!", "Hi, nice to meet you"] 
+    let howAreYouResponse = ["Just doing my thing!", "I am great!", "Amazing!", "Feeling awesome!"]
+    let whatsUpResponse = ["The ceiling, the sky?", "Nothing much, just robot butler stuff...", "Just personal assistant stuff..."]
+    let agreeResponse = ["Sure thing", "Okay", "For sure", "Alright"]        
+    let unrecognisedCommandResponse = ["Sorry, I don't know that. <div>Type 'help' to see what I can do</div>", "I'm not too sure about that one. <div>Type 'help' to see what I can do</div>", "Hmm, I'm not sure I know that yet. <div>Type 'help' to see what I can do</div>"]
+    let exitResponse = ["Goodbye", "Bye Bye!", "See you soon", "Catch you later!"]
+    let errorResponse = ["An error occured", "Sorry, there was an error", "Error, try again"]
+
+  
     // This gets the value that user has inputted
-    command = document.getElementById("commandInput").value
+    command = document.getElementById("commandInput").value.toLowerCase()
 
-    answer = command //TODO
+    // ADD POSSIBLE USER COMMANDS HERE
+    // GENERAL
+    if (command === ("hi") || command.includes("hey") || command.includes("hello") || command.includes("hii")) {
+        answer = random(helloResponse)
+    }
 
+    else if (command.includes("how are you") || command.includes("hows it going") || command.includes("how's it going") || command.includes("how r u")) {
+        answer = random(howAreYouResponse)
+    }
+
+    else if (command.includes("whats up") || command.includes("what's up") || command.includes("ssup") || command.includes("what up")) {
+        answer = random(whatsUpResponse)
+    }
+            
+    else if (command.includes("who are you") || command.includes("what are you") || command.includes("what r u") || command.includes("who r u")) {
+        answer = "I am Cadbury, your personal robot butler! Type 'help' to see what I can do!"
+    }
+    else {
+        answer = random(unrecognisedCommandResponse)
+    }
+    
     // This displays the answer on the answer div
     document.getElementById("answer").innerHTML = answer
 
-})
+}) // askBtn => on click function
 
+// --------------------------------------- BEWARE, FUNCTIONS AHEAD ---------------------------------------
 
+// Function to get random values from arrays 
+function random(array) {
+let getRandom = Math.floor(Math.random() * array.length)
+return array[getRandom]
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// Function to get the date and time
 function getDateTime() {
     let today = new Date()
     let dayNum = today.getUTCDay()
@@ -121,7 +147,7 @@ function getDateTime() {
     return greeting
 }
 
-
+// Function to display them on screen (recursively)
 function showGreeting() {
     // Set the greeting to the greeting div
     document.getElementById("greeting").innerHTML = getDateTime()
@@ -130,5 +156,5 @@ function showGreeting() {
     setTimeout(showGreeting, 2000)
 }
 
-// Initial function call
+// Initial function call for date and time
 showGreeting()

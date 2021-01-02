@@ -27,3 +27,13 @@
     display: inline;
     font-weight: bolder;
 }
+
+#answer {
+    margin-top: 2%;
+    font-size: xx-large;
+    font-weight: bolder;
+}
+
+#askBtn {
+    margin-top: 1.2%;
+}
