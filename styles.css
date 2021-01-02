@@ -1,0 +1,29 @@
+.app {
+    text-align: center;
+    margin-top: 6%;
+    margin-left: 2%;
+    margin-right: 2%;
+    padding: 10px;
+}
+
+.title {
+    margin-bottom: 3%;
+    font-weight: 10000;
+}
+
+#commandInput {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#greeting {
+    font-weight: normal;
+    font-style: italic;
+    padding-bottom: 2%;
+    font-size: medium;
+}
+
+#dateTime {
+    display: inline;
+    font-weight: bolder;
+}
