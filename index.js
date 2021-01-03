@@ -46,6 +46,7 @@ document.getElementById("askBtn").addEventListener("click", function(event){
     // WEB BASED COMMANDS
     // To open an external website
     else if (command.includes("open ")) {
+
         if (command.includes("stack overflow") || command.includes("stovf")) {
             openSite('https://stackoverflow.com')
             answer = random(agreeResponse)
@@ -66,9 +67,20 @@ document.getElementById("askBtn").addEventListener("click", function(event){
             answer = random(agreeResponse)
         }
         
-        else if (command.includes("github") || command.includes("gh")) {
-            openSite('https://github.com')
-            answer = random(agreeResponse)
+        else {
+        	if (command.includes("www") || command.includes("http") || command.includes(".com")) {
+                let site = command.slice(5)
+                answer = random(agreeResponse) + ", opening '" + command.slice(5) + "'"
+                //https:// is required to open the site
+                if (command.includes("http")) {
+                    openSite(site)
+                }
+                else {
+                    openSite("https://" + site)
+                    answer = random(agreeResponse) + ", opening 'https://" + command.slice(5) + "'"
+                }
+
+            }
         }
 
     }
@@ -150,7 +162,7 @@ function getDateTime() {
         day = "Fri"
     }else if (dayNum === 6) {
         day = "Sat"
-    }else if (dayNum === 7) {
+    }else {
         day = "Sun"
     }
 
