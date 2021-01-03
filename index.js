@@ -27,7 +27,11 @@ document.getElementById("askBtn").addEventListener("click", function(event){
 
     // ADD POSSIBLE USER COMMANDS HERE
     // GENERAL
-    if (command === ("hi") || command.includes("hey") || command.includes("hello") || command.includes("hii")) {
+    if (command === "") { // If user presses askBtn and text field is empty
+        answer = "Type 'Help' to see what I can do"
+    }
+
+    else if (command === "hi" || command.includes("hey") || command.includes("hello") || command.includes("hii")) {
         answer = random(helloResponse)
     }
 
@@ -63,7 +67,7 @@ document.getElementById("askBtn").addEventListener("click", function(event){
         }
 
         else if (command.includes("google")) {
-            openSite('https://youtube.com')
+            openSite('https://google.com')
             answer = random(agreeResponse)
         }
         
@@ -71,7 +75,7 @@ document.getElementById("askBtn").addEventListener("click", function(event){
         	if (command.includes("www") || command.includes("http") || command.includes(".com")) {
                 let site = command.slice(5)
                 answer = random(agreeResponse) + ", opening '" + command.slice(5) + "'"
-                //https:// is required to open the site
+                // https:// is required to open the site
                 if (command.includes("http")) {
                     openSite(site)
                 }
