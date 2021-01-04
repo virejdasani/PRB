@@ -98,6 +98,10 @@ document.getElementById("askBtn").addEventListener("click", function(event){
     // This displays the answer on the answer div
     document.getElementById("answer").innerHTML = answer
 
+    // To reset the input field to "" once answer is given
+    document.getElementById("commandInput").value = ""
+
+
 }) // askBtn => on click function
 
 // --------------------------------------- BEWARE, FUNCTIONS AHEAD ---------------------------------------
