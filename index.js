@@ -89,8 +89,6 @@ document.getElementById("askBtn").addEventListener("click", function(event){
 
     }
     
-
-    
     else {
         answer = random(unrecognisedCommandResponse)
     }
