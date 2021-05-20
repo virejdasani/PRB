@@ -1,4 +1,4 @@
-# Cadbury
+# PRB (formerly Cadbury)
 Your personal robot butler
 Made with Electron
 
